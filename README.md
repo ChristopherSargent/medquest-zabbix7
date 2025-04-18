@@ -28,14 +28,14 @@ POSTGRES_DB=zabbix
 * Verify .sh scripts are executable chmod +x *.sh
 7. docker ps 
 ```
-CONTAINER ID   IMAGE                                             COMMAND                  CREATED         STATUS         PORTS                                                                                NAMES
-c62f0268c750   zabbix/zabbix-web-nginx-pgsql:alpine-7.0-latest   "docker-entrypoint.sh"   2 minutes ago   Up 2 minutes   0.0.0.0:80->8080/tcp, [::]:80->8080/tcp, 0.0.0.0:443->8443/tcp, [::]:443->8443/tcp   zabbix-web-nginx-pgsql
-c3cae38b3a92   zabbix/zabbix-server-pgsql:alpine-7.0-latest      "/usr/bin/docker-ent…"   2 minutes ago   Up 2 minutes   0.0.0.0:10051->10051/tcp, :::10051->10051/tcp                                        zabbix-server-pgsql
-ab940544cbeb   zabbix/zabbix-snmptraps:alpine-7.0-latest         "/usr/sbin/snmptrapd…"   2 minutes ago   Up 2 minutes   0.0.0.0:162->1162/udp, [::]:162->1162/udp                                            zabbix-snmptraps
-1ff5003c2d72   postgres:16.3                                     "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes   5432/tcp                                                                             postgres-server
+CONTAINER ID   IMAGE                                             COMMAND                  CREATED          STATUS                    PORTS                                                                                NAMES
+53df65487683   zabbix/zabbix-web-nginx-pgsql:alpine-7.0-latest   "docker-entrypoint.sh"   12 seconds ago   Up 11 seconds (healthy)   0.0.0.0:80->8080/tcp, [::]:80->8080/tcp, 0.0.0.0:443->8443/tcp, [::]:443->8443/tcp   zabbix-web-nginx-pgsql
+3d12f7830dd8   zabbix/zabbix-server-pgsql:alpine-7.0-latest      "/usr/bin/docker-ent…"   20 seconds ago   Up 19 seconds             0.0.0.0:10051->10051/tcp, [::]:10051->10051/tcp                                      zabbix-server-pgsql
+80336fb68165   zabbix/zabbix-snmptraps:alpine-7.0-latest         "/usr/sbin/snmptrapd…"   23 seconds ago   Up 22 seconds             0.0.0.0:162->1162/udp, [::]:162->1162/udp                                            zabbix-snmptraps
+c1942d76a46a   postgres:16.3                                     "docker-entrypoint.s…"   27 seconds ago   Up 24 seconds             5432/tcp                                                                             postgres-server
 ```
-8. http://172.18.0.17
-
+8. http://10.217.53.101
+* Admin zabbix
 ![Screenshot](resources/zabbixhttps.JPG)
 
 ### Create certs and dhparam for SSL/TLS
@@ -51,7 +51,7 @@ ab940544cbeb   zabbix/zabbix-snmptraps:alpine-7.0-latest         "/usr/sbin/snmp
 ** Preparing Zabbix frontend configuration file
 ########################################################
 ```
-6. https://172.18.0.17
+6. https://10.217.53.101
 * Admin zabbix
 
 ![Screenshot](resources/zabbixhttps.JPG)
