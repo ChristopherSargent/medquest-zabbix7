@@ -42,8 +42,10 @@ c1942d76a46a   postgres:16.3                                     "docker-entrypo
 1. openssl req -newkey rsa:2048 -nodes -keyout /etc/ssl/nginx/ssl.key -x509 -days 365 -out /etc/ssl/nginx/ssl.crt
 2. openssl dhparam -out /etc/ssl/nginx/dhparam.pem 2048
 3. chmod 444 /etc/ssl/nginx/ssl.key
-4. docker restart zabbix-web-nginx-pgsql
-5. docker logs zabbix-web-nginx-pgsql -f
+4. chmod 644 /etc/ssl/nginx/ssl.crt
+5. chmod 644 /etc/ssl/nginx/dhparam.pem
+6. docker restart zabbix-web-nginx-pgsql
+7. docker logs zabbix-web-nginx-pgsql -f
 * Look for the following
 ```
 ** Adding Zabbix virtual host (HTTP)
@@ -51,7 +53,7 @@ c1942d76a46a   postgres:16.3                                     "docker-entrypo
 ** Preparing Zabbix frontend configuration file
 ########################################################
 ```
-6. https://10.217.53.101
+8. https://10.217.53.101
 * Admin zabbix
 
 ![Screenshot](resources/zabbixhttps.JPG)
